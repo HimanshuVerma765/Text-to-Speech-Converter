@@ -8,10 +8,14 @@ window.speechSynthesis.onvoiceschanged = () => {
     voices = window.speechSynthesis.getVoices();
     speech.voice = voices[2];
 
-    voices.forEach((voice,i) => (voiceSelect.options[i] = new options(voice.name, i)));
+    voices.forEach((voice,i) => (voiceSelect.options[i] = new Option(voice.name, i)));
 };
 
 document.querySelector("button").addEventListener("click",() =>{
     speech.text=document.querySelector("textarea").value;
     window.speechSynthesis.speak(speech);
 })
+
+
+
+
